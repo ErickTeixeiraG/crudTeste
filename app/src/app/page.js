@@ -38,10 +38,10 @@ export default function Home() {
     fetchUsuarios();
   };
 
-  const handleEdit = (usuario) => {
-    setNome(usuario.nome);
-    setEmail(usuario.email);
-    setEditId(usuario.usuarioId);
+  const handleEdit = (usuarios) => {
+    setNome(usuarios.nome);
+    setEmail(usuarios.email);
+    setEditId(usuarios.usuarioId);
   };
 
   const handleDelete = async (id) => {
@@ -113,9 +113,9 @@ export default function Home() {
 
         <h3 style={{ textAlign: 'center' }}>Lista de Usuários</h3>
         <ul style={{ listStyleType: 'none', padding: '0' }}>
-          {usuarios.map((usuario) => (
+          {usuarios.map((usuarios) => (
             <li
-              key={usuario.usuarioId}
+              key={usuarios.usuarioId}
               style={{
                 backgroundColor: '#064d96',
                 padding: '10px',
@@ -127,11 +127,11 @@ export default function Home() {
               }}
             >
               <span>
-                {usuario.nome} - {usuario.email}
+                {usuarios.nome} - {usuarios.email}
               </span>
               <div>
                 <button
-                  onClick={() => handleEdit(usuario)}
+                  onClick={() => handleEdit(usuarios)}
                   style={{
                     backgroundColor: '#061d51',
                     color: 'white',
@@ -145,7 +145,7 @@ export default function Home() {
                   Editar
                 </button>
                 <button
-                  onClick={() => handleDelete(usuario.usuarioId)}
+                  onClick={() => handleDelete(usuarios.usuarioId)}
                   style={{
                     backgroundColor: '#d9534f',
                     color: 'white',

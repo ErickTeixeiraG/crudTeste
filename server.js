@@ -55,7 +55,7 @@ app.get('/usuarios', (req, res) => {
 app.put('/usuarios/:id', (req, res) => {
   const { usuarioId } = req.params;
   const { nome } = req.body;
-  pool.query('update usuario set nome = $1 where usuarioId = $2 returning usuarioId, email, nome', [nome, usuarioId], (err, result) => {
+  pool.query('update usuarios set nome = $1 where usuarioId = $2 returning usuarioId, email, nome', [nome, usuarioId], (err, result) => {
     if (err) {
       res.status(500).send(err.message);
     } else {
@@ -67,7 +67,7 @@ app.put('/usuarios/:id', (req, res) => {
 // d
 app.delete('/usuarios/:id', (req, res) => {
   const { usuarioId } = req.params;
-  pool.query('delete from usuarios where usuarioId = $1', [usuarioId], (err) => {
+  pool.query('delete * from usuarios where usuarioId = $1', [usuarioId], (err) => {
     if (err) {
       res.status(500).send(err.message);
     } else {
