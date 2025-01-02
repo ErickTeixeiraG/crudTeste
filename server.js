@@ -11,9 +11,19 @@ const pool = new Pool({
   user: 'postgres',
   host: 'localhost',
   database: 'crudTeste',
-  password: 'AudaciosCard123',
+  // password: 'AudaciosCard123',
+  password: 'audacioscard',
   port: 5432,
 });
+
+// pool.query('SELECT NOW()', (err, res) => {
+//   if (err) {
+//     console.error('Erro ao conectar ao banco:', err.message);
+//   } else {
+//     console.log('Conexão bem-sucedida ao banco. Hora atual:', res.rows[0].now);
+//   }
+// }); teste para solucionar um erro de porta
+
 
 // pra puxar em json
 app.use(bodyParser.json());
